@@ -6,6 +6,7 @@ class Auth {
   Future<AuthResult> signUp(String email, String password) async {
     final authResult = await _auth.createUserWithEmailAndPassword(
         email: email, password: password);
+
     return authResult;
   }
 
@@ -14,9 +15,8 @@ class Auth {
         email: email, password: password);
     return authResult;
   }
-   Future<FirebaseUser> getUser() async
-    {
-     return await  _auth.currentUser();
-    }
 
+  Future<FirebaseUser> getUser() async {
+    return await _auth.currentUser();
+  }
 }

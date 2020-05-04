@@ -1,9 +1,10 @@
 import 'package:buy_it/constants.dart';
 import 'package:buy_it/screens/admin/addProduct.dart';
-import 'package:buy_it/screens/admin/editProduct.dart';
+import 'package:buy_it/screens/admin/manageProduct.dart';
 import 'package:flutter/material.dart';
+
 class AdminHome extends StatelessWidget {
-  static String id='AdminHome';
+  static String id = 'AdminHome';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,25 +17,20 @@ class AdminHome extends StatelessWidget {
             width: double.infinity,
           ),
           RaisedButton(
-            onPressed: ()
-            {
+            onPressed: () {
               Navigator.pushNamed(context, AddProduct.id);
             },
-            child: Text('Add Product')
-            ,
+            child: Text('Add Product'),
           ),
           RaisedButton(
-            onPressed: ()
-            {
-              Navigator.pushNamed(context, EditProduct.id);
+            onPressed: () {
+              Navigator.pushNamed(context, ManageProducts.id);
             },
-            child: Text('Edit Product')
-            ,
+            child: Text('Edit Product'),
           ),
           RaisedButton(
-            onPressed: (){},
-            child: Text('View orders')
-            ,
+            onPressed: () {},
+            child: Text('View orders'),
           )
         ],
       ),
