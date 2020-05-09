@@ -9,3 +9,7 @@ const kProductLocation = 'productLocation';
 const kProductCategory = 'productCategory';
 const kProductsCollection = 'Products';
 const kUnActiveColor = Color(0xFFC1BDB8);
+const kJackets = 'jackets';
+const kTrousers = 'trousers';
+const kTshirts = 't-shirts';
+const kShoes = 'shoes';
