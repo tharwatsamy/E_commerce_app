@@ -1,6 +1,7 @@
 import 'package:buy_it/constants.dart';
 import 'package:buy_it/models/product.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProductInfo extends StatefulWidget {
   static String id = 'ProductInfo';
@@ -9,7 +10,7 @@ class ProductInfo extends StatefulWidget {
 }
 
 class _ProductInfoState extends State<ProductInfo> {
-  int _quantity = 0;
+  int _quantity = 1;
   @override
   Widget build(BuildContext context) {
     Product product = ModalRoute.of(context).settings.arguments;
@@ -119,17 +120,19 @@ class _ProductInfoState extends State<ProductInfo> {
                 ButtonTheme(
                   minWidth: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * .12,
-                  child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(20),
-                            topLeft: Radius.circular(20))),
-                    color: kMainColor,
-                    onPressed: () {},
-                    child: Text(
-                      'Add to Cart'.toUpperCase(),
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  child: Builder(
+                    builder: (context) => RaisedButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(20),
+                              topLeft: Radius.circular(20))),
+                      color: kMainColor,
+                      onPressed: () {},
+                      child: Text(
+                        'Add to Cart'.toUpperCase(),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),
@@ -142,7 +145,7 @@ class _ProductInfoState extends State<ProductInfo> {
   }
 
   subtract() {
-    if (_quantity > 0) {
+    if (_quantity > 1) {
       setState(() {
         _quantity--;
         print(_quantity);
