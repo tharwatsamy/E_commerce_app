@@ -25,16 +25,25 @@ class CartScreen extends StatelessWidget {
           'My Cart',
           style: TextStyle(color: Colors.black),
         ),
-        leading: Icon(
-          Icons.arrow_back,
-          color: Colors.black,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
         ),
       ),
       body: Column(
         children: <Widget>[
           LayoutBuilder(builder: (context, constrains) {
             if (products.isNotEmpty) {
-              return Expanded(
+              return Container(
+                height: screenHeight -
+                    statusBarHeight -
+                    appBarHeight -
+                    (screenHeight * .08),
                 child: ListView.builder(
                   itemBuilder: (context, index) {
                     return Padding(
