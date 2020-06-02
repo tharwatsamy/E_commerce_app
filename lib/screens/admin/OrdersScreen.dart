@@ -21,7 +21,7 @@ class OrdersScreen extends StatelessWidget {
             List<Order> orders = [];
             for (var doc in snapshot.data.documents) {
               orders.add(Order(
-                address: kAddress,
+                address: doc.data[kAddress],
                 totallPrice: doc.data[kTotallPrice],
               ));
             }
