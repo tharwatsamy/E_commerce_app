@@ -7,6 +7,7 @@ import 'package:buy_it/screens/admin/addProduct.dart';
 import 'package:buy_it/screens/admin/adminHome.dart';
 import 'package:buy_it/screens/admin/editProduct.dart';
 import 'package:buy_it/screens/admin/manageProduct.dart';
+import 'package:buy_it/screens/admin/order_details.dart';
 import 'package:buy_it/screens/login_screen.dart';
 import 'package:buy_it/screens/signup_screen.dart';
 import 'package:buy_it/screens/user/CartScreen.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: LoginScreen.id,
         routes: {
+          OrderDetails.id: (context) => OrderDetails(),
           OrdersScreen.id: (context) => OrdersScreen(),
           CartScreen.id: (context) => CartScreen(),
           ProductInfo.id: (context) => ProductInfo(),
