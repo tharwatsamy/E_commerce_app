@@ -1,5 +1,6 @@
 import 'package:buy_it/constants.dart';
 import 'package:buy_it/models/product.dart';
+import 'package:buy_it/screens/login_screen.dart';
 import 'package:buy_it/screens/user/CartScreen.dart';
 import 'package:buy_it/screens/user/productInfo.dart';
 import 'package:buy_it/services/store.dart';
@@ -8,6 +9,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:buy_it/services/auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../functions.dart';
 
@@ -37,23 +39,25 @@ class _HomePageState extends State<HomePage> {
               unselectedItemColor: kUnActiveColor,
               currentIndex: _bottomBarIndex,
               fixedColor: kMainColor,
-              onTap: (value) {
+              onTap: (value) async {
+                if (value == 2) {
+                  SharedPreferences pref =
+                      await SharedPreferences.getInstance();
+                  pref.clear();
+                  await _auth.signOut();
+                  Navigator.popAndPushNamed(context, LoginScreen.id);
+                }
                 setState(() {
                   _bottomBarIndex = value;
                 });
               },
               items: [
                 BottomNavigationBarItem(
-                    title: Text(
-                      'Test',
-                    ),
-                    icon: Icon(Icons.person)),
-                BottomNavigationBarItem(
                     title: Text('Test'), icon: Icon(Icons.person)),
                 BottomNavigationBarItem(
                     title: Text('Test'), icon: Icon(Icons.person)),
                 BottomNavigationBarItem(
-                    title: Text('Test'), icon: Icon(Icons.person)),
+                    title: Text('Sign Out'), icon: Icon(Icons.close)),
               ],
             ),
             appBar: AppBar(

@@ -103,7 +103,7 @@ class SignupScreen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, LoginScreen.id);
+                      Navigator.pop(context);
                     },
                     child: Text(
                       'Login',

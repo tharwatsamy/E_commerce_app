@@ -17,6 +17,7 @@ environment:
   sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
+  shared_preferences: ^0.5.7+3
   cloud_firestore: ^0.13.5
   provider: ^4.0.5
   modal_progress_hud: ^0.1.3
